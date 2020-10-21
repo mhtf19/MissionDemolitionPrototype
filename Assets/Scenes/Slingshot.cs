@@ -7,7 +7,7 @@ public class Slingshot : MonoBehaviour
     //fields set in Unity Inspector pane
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
-    public float velocityMult = 8f;
+    public float velocityMult = 10f;
 
     //fields set dynamically
     [Header("Set Dynamically")]
@@ -77,6 +77,7 @@ public class Slingshot : MonoBehaviour
             aimingMode = false;
             projectileRigidbody.isKinematic = false;
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
+            FollowCam.POI = projectile;
             projectile = null;
         }
 
