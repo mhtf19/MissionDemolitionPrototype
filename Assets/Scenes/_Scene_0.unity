@@ -436,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275854194}
   - component: {fileID: 275854193}
+  - component: {fileID: 275854195}
   m_Layer: 0
   m_Name: ProjectileLine
   m_TagString: Untagged
@@ -555,6 +556,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &275854195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275854192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f769b307a935f4c9d9a9cb4cc9e98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDist: 0.1
 --- !u!4 &326373672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7073167576215622876, guid: 5b7b0aa625ca37745b96f58a2ceaabb9, type: 3}
