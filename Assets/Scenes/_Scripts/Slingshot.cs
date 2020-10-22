@@ -7,7 +7,7 @@ public class Slingshot : MonoBehaviour
     //fields set in Unity Inspector pane
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
-    public float velocityMult = 10f;
+    public float velocityMult = 12f;
 
     //fields set dynamically
     [Header("Set Dynamically")]
