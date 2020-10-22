@@ -16,6 +16,7 @@ public class MissionDemolition : MonoBehaviour
     public Text uitLevel;
     public Text uitShots;
     public Text uitButton;
+    public Text highScoreScreen;
     public Vector3 castlePos;
     public GameObject[] castles;
 
@@ -27,11 +28,27 @@ public class MissionDemolition : MonoBehaviour
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";
     // Start is called before the first frame update
+    void Awake(){
+        highScoreScreen.enabled = false;
+    }
     void Start()
     {
         S = this;
         level = 0;
         levelMax = castles.Length;
+        if(!PlayerPrefs.HasKey("HighScore0")){
+            PlayerPrefs.SetInt("HighScore0", 20);
+        }
+        if(!PlayerPrefs.HasKey("HighScore1")){
+            PlayerPrefs.SetInt("HighScore1", 20);
+        }
+        if(!PlayerPrefs.HasKey("HighScore2")){
+            PlayerPrefs.SetInt("HighScore2", 20);
+        }
+        if(!PlayerPrefs.HasKey("HighScore3")){
+            PlayerPrefs.SetInt("HighScore3", 20);
+        }
+        
         StartLevel();
     }
 
@@ -72,12 +89,40 @@ public class MissionDemolition : MonoBehaviour
             mode = GameMode.levelEnd;
 
             SwitchView("Show Both");
+            if(level == 0){
+                if(PlayerPrefs.GetInt("HighScore0") > shotsTaken){
+                    PlayerPrefs.SetInt("HighScore0", shotsTaken);
+                }
+                highScoreScreen.text = "Level Highscore: " +shotsTaken;
+            }
+            if(level == 1){
+                if(PlayerPrefs.GetInt("HighScore1") > shotsTaken){
+                    PlayerPrefs.SetInt("HighScore1", shotsTaken);
+                }
+                highScoreScreen.text = "Level Highscore: " +shotsTaken;
+            }
+            if(level == 2){
+                if(PlayerPrefs.GetInt("HighScore2") > shotsTaken){
+                    PlayerPrefs.SetInt("HighScore2", shotsTaken);
+                }
+                highScoreScreen.text = "Level Highscore: " +shotsTaken;
+            }
+            if(level == 3){
+                if(PlayerPrefs.GetInt("HighScore3") > shotsTaken){
+                    PlayerPrefs.SetInt("HighScore3", shotsTaken);
+                }
+                highScoreScreen.text = "Level Highscore: " +shotsTaken;
+            }
 
+
+
+            highScoreScreen.enabled = true;
             Invoke("Nextlevel", 2f);
         }
     }
 
     void Nextlevel(){
+        highScoreScreen.enabled = false;
         level++;
         if(level == levelMax){
             level = 0;
