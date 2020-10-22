@@ -32,8 +32,6 @@ public class MissionDemolition : MonoBehaviour
         S = this;
         level = 0;
         levelMax = castles.Length;
-        GameObject levelBox = GameObject.Find("UIText_Level");
-        uitLevel = levelBox.GetComponent<Text>();
         StartLevel();
     }
 
@@ -60,10 +58,9 @@ public class MissionDemolition : MonoBehaviour
         mode = GameMode.playing;
     }
 
-    void UpdateGUI{
-        print("hi");
-        //uitLevel.text = "Level: "+(level+1) +" of " +levelMax;
-        //uitShots.text = "Shots Taken: " +shotsTaken;
+    void UpdateGUI(){
+        uitLevel.text = "Level: "+(level+1) +" of " +levelMax;
+        uitShots.text = "Shots Taken: " +shotsTaken;
     }
 
     // Update is called once per frame
